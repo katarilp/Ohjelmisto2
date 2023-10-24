@@ -21,3 +21,6 @@ array1 = []
 for i in kulmat:
     array1.append(numpy.radians(i))
 print(numpy.array(array1))
+
+print("Laske t.2 suorakulmaisen kolmion(kateetit 1,6m ja 2,3m) hypotenuusan pituus käyttäen sopivaa numpyn funktiota.")
+print(numpy.hypot(1.6, 2.3))
