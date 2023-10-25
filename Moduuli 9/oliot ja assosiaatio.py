@@ -4,7 +4,14 @@
 Luodaan kaksi koulua(Metropolia ja Laurea), joilla molemmilla on yksi kurssi.
 
 Kurssi toimii omana luokkanaan. Kurssilla on nimi ja lista opiskelijoista. '''
-
+class School:
+    def __init__(self, name, location):
+        self.name = name
+        self.location = location
+        self.courses = []
+    def add_courses_to_school(self, course):
+        self.courses.append(course)
+        print(f"Kurssi on lisätty koulun {self.name} listalle.")
 class Course:
     def __init__(self, name):
         self.name = name
@@ -104,4 +111,11 @@ course2.add_student(st2)
 course2.add_student(st3)
 course2.check_students_on_course()
 
-course1.add_credits_to_all(5)
+course1.add_credits_to_all(10)
+
+school1 = School("Laurea", "Lohja")
+school2 = School("Metropolia", "Karamalmi")
+
+school2.add_courses_to_school(course1)
+school1.add_courses_to_school(course2)
+
