@@ -12,6 +12,14 @@ class School:
     def add_courses_to_school(self, course):
         self.courses.append(course)
         print(f"Kurssi on lisätty koulun {self.name} listalle.")
+
+    def fire_alarm(self):
+        print(f"Koululla {self.name} paikassa {self.location} on palohälytys.")
+        for course in self.courses:
+            print(f"Kurssit käynnissä:{course.name}")
+            course.check_students_on_course()
+
+
 class Course:
     def __init__(self, name):
         self.name = name
@@ -117,5 +125,9 @@ school1 = School("Laurea", "Lohja")
 school2 = School("Metropolia", "Karamalmi")
 
 school2.add_courses_to_school(course1)
-school1.add_courses_to_school(course2)
+school1.add_courses_to_school(course2
+
+#Palohälytys koululla
+school1.fire_alarm()
+
 
