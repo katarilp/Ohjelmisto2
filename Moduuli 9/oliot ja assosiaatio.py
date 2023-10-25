@@ -21,6 +21,11 @@ class Course:
 
     def drop_student(self, student):
         self.students.remove(student)
+
+    def add_credits_to_all(self, credits):
+        for student in self.students:
+            student.credits = student.credits + credits
+            student.say_hello()
 class Student:
 
     count = 0
@@ -98,3 +103,5 @@ course1.check_students_on_course()
 course2.add_student(st2)
 course2.add_student(st3)
 course2.check_students_on_course()
+
+course1.add_credits_to_all(5)
