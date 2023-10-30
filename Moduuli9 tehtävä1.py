@@ -13,13 +13,14 @@ class Auto:
     nopeus = 0
     matka = 0
 
+    def printtaa_auto(self):
+        (print(f"Rekisteröidyn auton tiedot: \nrekisteritunnus {self.reknum},\nhuippunopeus: {self.huippu} km/h,\n"
+               f"tämänhetkinen nopeus: {self.nopeus}\nja kuljettu matka: {self.matka}."))
+
 auto1 = Auto("ABC-123", 142)
 
-print(f"Rekisteröidyn auton tiedot: "
-      f"rekisteritunnus {auto1.reknum}, "
-      f"huippunopeus: {auto1.huippu} km/h, "
-      f"tämänhetkinen nopeus: {auto1.nopeus} "
-      f"ja kuljettu matka: {auto1.matka}.")
+auto1.printtaa_auto()
+
 
 
 

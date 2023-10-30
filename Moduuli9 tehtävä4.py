@@ -8,6 +8,7 @@
 # Kaikkia autoja käsketään liikkumaan yhden tunnin ajan. Tämä tehdään kutsumalla kulje-metodia.
 # Kilpailu jatkuu, kunnes jokin autoista on edennyt vähintään 10000 kilometriä.
 # Lopuksi tulostetaan kunkin auton kaikki ominaisuudet selkeäksi taulukoksi muotoiltuna.
+import random
 
 class Auto:
     def __init__(self, reknum, huippu):
@@ -15,7 +16,9 @@ class Auto:
         self.huippu = huippu
     nopeus = 0
     matka = 0
-
+    def printtaa_auto(self):
+        (print(f"Rekisteröidyn auton tiedot: \nrekisteritunnus {self.reknum},\nhuippunopeus: {self.huippu} km/h,\n"
+               f"tämänhetkinen nopeus: {self.nopeus}\nja kuljettu matka: {self.matka}."))
     def kiihdytä(self, nopeudenmuutos):
         self.nopeus = self.nopeus + nopeudenmuutos
         if self.nopeus < 0:
@@ -31,10 +34,20 @@ class Auto:
             self.matka = self.matka + self.nopeus * aika
         print(f"Autolla {self.reknum} on kuljettu {self.matka} kilometriä.")
 
-auto1 = Auto("ABC-123", 142)
+kilpailijat = []
 
-print(f"Rekisteröidyn auton tiedot: "
-      f"rekisteritunnus {auto1.reknum}, "
-      f"huippunopeus: {auto1.huippu} km/h, "
-      f"tämänhetkinen nopeus: {auto1.nopeus} "
-      f"ja kuljettu matka: {auto1.matka}.")
+num = 1
+for num in range (1, 11):
+    str(num)
+    vauhti = random.randint(100, 200)
+    num = Auto(f"ABC-{num}", vauhti)
+    #num.printtaa_auto()
+    kilpailijat.append(num)
+
+while num.matka < 10000:
+    for kaara in kilpailijat:
+        nopmuutos = random.randint(-10, 15)
+        kaara.kiihdytä(nopmuutos)
+        kaara.kulje(1)
+
+
