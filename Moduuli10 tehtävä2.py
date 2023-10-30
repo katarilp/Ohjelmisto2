@@ -3,6 +3,16 @@
 # Hissien lista tallennetaan talon ominaisuutena. Kirjoita taloon metodi aja_hissiä, joka saa parametreinaan hissin
 # numeron ja kohdekerroksen. Kirjoita pääohjelmaan lauseet talon luomiseksi ja talon hisseillä ajelemiseksi.
 
+class Talo:
+    def __init__(self, talon_ylin_kerros, talon_alin_kerros, hissit):
+        self.talon_ylin_kerros = talon_ylin_kerros
+        self.talon_alin_kerros = talon_alin_kerros
+    hissilista = []
+    for i in range(hissit):
+        uusihissi = Hissi("i", self.talon_ylin_kerros, self.talon_alin_kerros)
+        hissilista.append(uusihissi)
+
+
 class Hissi:
     def __init__(self, ylin, alin):
         self.ylin = ylin
