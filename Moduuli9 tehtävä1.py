@@ -15,7 +15,7 @@ class Auto:
 
 auto1 = Auto("ABC-123", 142)
 
-print(f"Ensimmäisen auton tiedot: "
+print(f"Rekisteröidyn auton tiedot: "
       f"rekisteritunnus {auto1.reknum}, "
       f"huippunopeus: {auto1.huippu} km/h, "
       f"tämänhetkinen nopeus: {auto1.nopeus} "
