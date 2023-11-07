@@ -30,24 +30,34 @@ def get_kukkuu_v2(name, age):
 # response jasoniksi '{num: 5, result: 25}'
 # rajoitetaan num 0-100
 @app.route('/multiply/<num>')
-def multiply(num): # koodi pitisi siivota, matskuissa on errorhandler
+def multiply(num): # https://flask.palletsprojects.com/en/3.0.x/errorhandling/#error-handlers
     try:
         num = int(num)
     except ValueError:
-        response_data = {"msg": "Input in not a number", "input_num": num}
-        response_data = json.dumps(response_data)
-        response = Response(response=response_data, status=400, mimetype="application/json")
-        return response
-
-    if 0 < num < 100:
-        result = num * num
-        response_data = {"msg": "Calculation done", "input_num": num, "result": result}
-        return response_data
+        response_data = {
+            "msg": "Input in not a number",
+            "input_num": num
+        }
+        status_code = 400
     else:
-        response_data = {"msg": "Input is out of bounds", "input_num": num}
-        response_data = json.dumps(response_data)
-        response = Response(response=response_data, status=400, mimetype="application/json")
-        return response
+        if 0 < num < 100:
+            result = num * num
+            response_data = {
+            "msg": "Calculation done",
+            "input_num": num,
+            "result": result
+            }
+            status_code = 200
+        else:
+            response_data = {
+            "msg": "Input is out of bounds",
+            "input_num": num
+            }
+            status_code = 400
+
+    response_data = json.dumps(response_data)
+    response = Response(response=response_data, status=status_code, mimetype="application/json")
+    return response
 
 
 app.run(use_reloader=True, port=3000)
