@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>JS 1 tunnilla</title>
     <script src="Javascript1 tunnilla.js"> </script>
+    <style>
+        .blue {
+            color: blue;
+        }
+    </style>
 </head>
 <body>
 <h1>Tänne voi kirjoittaa mitä vaan</h1>
@@ -11,15 +16,25 @@
     "Konsoli on kaveri." -Ulla<br>
     Konsoliin oksennetaan kaikki tiedot ja virheet.<br>
     Tiedosto käydään läpi ylhäältä alas, mikä pitää ottaa huomioon siinä, missä järjestyksessä esim muotoilutiedot ovat
-    suhteessa bodyn sisältöön. Jos stailaus on ennen tekstiä dosyssa tai headissa, se ei päde siihen,
+    suhteessa bodyn sisältöön. Jos stailaus on ennen tekstiä bodyssa tai headissa, se ei päde siihen,
     mistä ei vielä "tiedetä".<br>
     W3 Window object methods kannattaa tarkistaa<br>
-
 </p>
+
+<p id = "teksti" class = "blue">Moi, haluan muuttaa tätä</p>
 
 <script>
   'use strict'; // strict toimii kielipoiisina ja antaa vinkkejä
   //voi käyttää kumpia tahansa hipsuja, mutta yleensä tapana yksittäiset'' hipsut
+  // ei käytetä alaviivoja vaan camelCasingTyyliä
+
+  //  tässä muutetaan html-sisältöä
+  const htmlNimi = 'Ulla';
+  const element = document.querySelector('#teksti');
+  element.innerHTML = `Hei ${htmlNimi}!`;
+  element.style.color = 'red';
+
+
   console.log('Moro, maailma!');
   // sama kuin window.console.log, näkyy selaimen konsolissa
   // ulkoinen javascript-tiedosto linkataan usein headiin
@@ -54,14 +69,14 @@
 
   let age2 = 12;
   age2 = 13;
-  // letin numeerisia arvoja voi muokata omilla operaatioillaan esim number++; lisää numberin arvoa yhdellä
+  // letin numeerisia arvoja voi muokata omilla operaattoreillaan esim number++; lisää numberin arvoa yhdellä
   age2 *= 2; // kertoo arvon kahdella
 
   let teacher = 'Ulla';
   let surname; // voidaan alustaa näin ja antaa arvo myöhemmin
   surname = 'Sederlöf';
   teacher = teacher + ' ' + surname;
-  console.log(teacher);
+  console.log(typeof teacher, teacher);
   // let voi alustaa ketjussa
   let etunimi, ikä, asuinpaikka, kieli;
 
@@ -71,8 +86,18 @@
   const surname2 = 'Peltoniemi';
   // teacher2 = teacher2 + surname2; ei onnistu!
 
+  // array
+  const taulukko = [1,2,3,4,5,6,7];
+  console.log(taulukko);
 
+  // koko taulukkoa ei voi kerralla korvata, mutta yksittäsiä arvoja voi muuttaa
+  taulukko [0] = 5;
+  console.log(taulukko);
 
+  // jos constin sisällön tyyppiä haluaa  muuttaa, tarvitaan omat metodit esim. toString
+  const ageStr = 13;
+  const age4 = ageStr.toString();
+  console.log(typeof age4, age4);
 
 </script>
 
