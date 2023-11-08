@@ -1,0 +1,1 @@
+console.log('Tervehdys ulkoisesta tiedostosta!')
