@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>JS 1 tunnilla</title>
     <script src="Javascript1 tunnilla.js"> </script>
 </head>
 <body>
@@ -12,15 +12,68 @@
     Konsoliin oksennetaan kaikki tiedot ja virheet.<br>
     Tiedosto käydään läpi ylhäältä alas, mikä pitää ottaa huomioon siinä, missä järjestyksessä esim muotoilutiedot ovat
     suhteessa bodyn sisältöön. Jos stailaus on ennen tekstiä dosyssa tai headissa, se ei päde siihen,
-    mistä ei vielä "tiedetä".
+    mistä ei vielä "tiedetä".<br>
+    W3 Window object methods kannattaa tarkistaa<br>
+
 </p>
 
 <script>
-  'use strict';
+  'use strict'; // strict toimii kielipoiisina ja antaa vinkkejä
   //voi käyttää kumpia tahansa hipsuja, mutta yleensä tapana yksittäiset'' hipsut
   console.log('Moro, maailma!');
   // sama kuin window.console.log, näkyy selaimen konsolissa
-  /* ulkoinen javascript-tiedosto linkataan usein headiin
+  // ulkoinen javascript-tiedosto linkataan usein headiin
+  alert('Terve, olen alert! Tulen tänne joka kerta :)'); // pop-up
+  const nimi = prompt('Moi! Mikä sinun nimesi on? ');
+  // constia ei ysty muuttamaan jälkikäteen, jollei muuta letiksi
+  // prompt toimii kuten input ja kaipaa muuttujan(variable: const, let ja var), yleensä käytetään formeja
+
+  console.log(nimi);
+
+  //string literal = merkkijono
+
+  const merkkijono = 'Nimesi on ' + nimi;
+  console.log(merkkijono);
+
+  // template literal = muotoiltava lauseke (huomaa erikoishipsut ja ${muuttuja} !!)
+  const muotoiltu = `Kiva tavata ${nimi}!`;
+  console.log(muotoiltu);
+
+  // Esimerkki siitä, mitä ei kannata tehdä
+  // var nimi = 'Ulla'; (vanhaa tyyliä ja ei yleensä kannata käyttää jos ei ole pakko, sctrict herjaa)
+  // käytetään  vain ihan tietyissä tilanteissa, joissa varin scope on tarpeen
+  // var voi määritellä monta kertaa. Hoistin, eli käyttö ennen määritteyä mahdollista
+  console.log(age);
+  var age = 12;
+  var age = 13;
+  console.log(age);
+
+  // const ja let "parempia" muuttujia kuin var
+  // let alustetaan kerran ja sen jälkeen sen arvoa voi muuttaa
+  // let arvo voi olla str tai int ja niitä voi vaihdella miten vaan
+
+  let age2 = 12;
+  age2 = 13;
+  // letin numeerisia arvoja voi muokata omilla operaatioillaan esim number++; lisää numberin arvoa yhdellä
+  age2 *= 2; // kertoo arvon kahdella
+
+  let teacher = 'Ulla';
+  let surname; // voidaan alustaa näin ja antaa arvo myöhemmin
+  surname = 'Sederlöf';
+  teacher = teacher + ' ' + surname;
+  console.log(teacher);
+  // let voi alustaa ketjussa
+  let etunimi, ikä, asuinpaikka, kieli;
+
+  // muutokset ja yhdistely ei onnistu constilla, aiheuttaa virheen
+  // const = constant eli muuttumaton. Hyvä tapauksissa, joissa arvo ei vaihdu
+  const teacher2 = 'Matti';
+  const surname2 = 'Peltoniemi';
+  // teacher2 = teacher2 + surname2; ei onnistu!
+
+
+
+
 </script>
 
 
