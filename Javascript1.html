@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <title>JS 1 tunnilla</title>
-    <script src="Javascript1 tunnilla.js"> </script>
+    <script src="Javascript1 tunnilla.js" defer> </script>
+
     <style>
         .blue {
             color: blue;
@@ -17,7 +18,9 @@
     Konsoliin oksennetaan kaikki tiedot ja virheet.<br>
     Tiedosto käydään läpi ylhäältä alas, mikä pitää ottaa huomioon siinä, missä järjestyksessä esim muotoilutiedot ovat
     suhteessa bodyn sisältöön. Jos stailaus on ennen tekstiä bodyssa tai headissa, se ei päde siihen,
-    mistä ei vielä "tiedetä".<br>
+    mistä ei vielä "tiedetä".'defer' headisn linkkauksessa tekee sen, että linkin js hyppää käyttöön vasta, kun koko
+    tiedosto on parsittu läpi. Muuten se käy js-tiedoston läpi ennen html-tiedostoa, joilloin ei päästä esim kiinni
+    html-tiedoston muuttujiin, koska niitä ei olla vielä luotu. <br>
     W3 Window object methods kannattaa tarkistaa<br>
 </p>
 
@@ -37,11 +40,12 @@
 
   console.log('Moro, maailma!');
   // sama kuin window.console.log, näkyy selaimen konsolissa
-  // ulkoinen javascript-tiedosto linkataan usein headiin
+  // ulkoinen javascript-tiedosto linkataan usein headiin(muista defer!)
   alert('Terve, olen alert! Tulen tänne joka kerta :)'); // pop-up
-  const nimi = prompt('Moi! Mikä sinun nimesi on? ');
-  // constia ei ysty muuttamaan jälkikäteen, jollei muuta letiksi
+  const nimi = prompt('Moi! Mikä sinun nimesi on? '); // pop-up, joka kysyy ja tallentaa jonkin arvon
+  // constia ei pysty muuttamaan jälkikäteen, jollei muuta letiksi
   // prompt toimii kuten input ja kaipaa muuttujan(variable: const, let ja var), yleensä käytetään formeja
+  // jos vastaus halutaan numeroina : const num1 = parseInt(prompt(Give number: ));
 
   console.log(nimi);
 
@@ -98,6 +102,40 @@
   const ageStr = 13;
   const age4 = ageStr.toString();
   console.log(typeof age4, age4);
+
+    // ASI eli automatic semicolon insertion lisää puuttuvat puolipisteet
+    // erilaiset loogiset operaattorit and = &&, or =||, not = !
+
+
+    const age8 = 15;
+    if (age8 < 18 ) {
+      console.log('Olet alaikäinen.')
+    }
+
+    const number8 = 15;
+    if (number8 % 2 == 1 && number8 > 10){
+      console.log('Syötit numeron, joka on suurempi kuin 10.')
+    }
+
+// strict equality === (tiukka kaveri myös tyyppien suhteen)
+  const num8 = 5;
+  const num9 = '5';
+
+  if (num8 === num9) {
+    console.log('Equal eli samat.');
+  } else {
+    console.log('Not equal.');
+  }
+ // versus == (olettaa molemmat numeroiksi)
+
+  if (num8 == num9) {
+    console.log('Equal eli samat.');
+  } else {
+    console.log('Not equal.');
+  }
+
+  // t 6: const vastaus = confirm('should i calculate the squareroot?);
+
 
 </script>
 
