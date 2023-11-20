@@ -151,3 +151,22 @@ console.log(lauantaiLotto[0][2]);
 
 // !!! Globaali arvo luodaan ilman sisennystä !!!
 
+
+// Jatko-osa 20.11.2023
+// TAULUKKO MUUTTUJAN PARAMETRINA
+
+function arrayTest(numbers) {
+  numbers.push(9);
+  return numbers;
+}
+const numbers= [1,2,3];
+console.log(arrayTest(numbers));
+const numbers2 = numbers; // tehdään uusi muuttuja, joka viittaa samaan taulukkoon
+let numbers3 = []; // huom. let eikä const
+numbers3 = numbers3.concat(numbers); // luotiin uusi taulukko ja kopioitiin sinne toisen taulukon sisältö
+// toinen tapa kopioida
+const numbers4 = [...numbers];
+// kolme pistettä(spread) purkaa arvot talukosta yksittäisiksi alkioiksi.
+// Ilman niitä uuden muuttujan sisältö on array. [1,2,3,] => 1,2,3
+
+
