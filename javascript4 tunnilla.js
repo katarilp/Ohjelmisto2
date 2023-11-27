@@ -1,5 +1,5 @@
 'use strict';
- // API ja AJAX
+ // API, Fetch ja AJAX
 
 
 
